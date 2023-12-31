@@ -25,7 +25,7 @@ body {
 
 #search-button {
   position: absolute;
-  right: 1px;
+  right: -40px;
   top: 1px;
   background-color: #a7c5a8;
   color: white;
