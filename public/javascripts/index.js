@@ -18,36 +18,34 @@ function performSearch() {
                 return response.json();
             })
             .then(data => {
-                displaySearchResults(data);
+                displaySearchResults(data, query);
                 resultsContainer.style.display = 'block';
             })
             .catch(error => console.error('Error:', error));
     }
 }
 
-function displaySearchResults(results) {
+function displaySearchResults(results, query) {
     var resultsContainer = document.getElementById('search-results-container');
     resultsContainer.innerHTML = '';
 
     if (results.length === 0) {
-        resultsContainer.innerHTML = '<p>No results found</p>';
+        resultsContainer.innerHTML = '<p>No Results Found</p>';
     } else {
         results.forEach((result, index) => {
-            // Create a card element
             const card = document.createElement('div');
             card.classList.add('card');
+            const proverbName = result.ProverbName.replace(new RegExp(query, 'gi'), match => `<span style="color: red;">${match}</span>`);
+            const proverbDesp = result.ProverbDesp.replace(new RegExp(query, 'gi'), match => `<span style="color: red;">${match}</span>`);
 
-            // Populate the card with result data
             card.innerHTML = `
                 <div class="card-header">
-                    <h5>${index + 1}. ${result.ProverbName}</h5>
+                    <h5>${index + 1}. ${proverbName}</h5>
                 </div>
                 <div class="card-body">
-                    <p>${result.ProverbDesp}</p>
+                    <p>${proverbDesp}</p>
                 </div>
             `;
-
-            // Append the card to the results container
             resultsContainer.appendChild(card);
         });
     }

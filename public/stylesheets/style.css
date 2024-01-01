@@ -1,9 +1,16 @@
+@font-face {
+  font-family: "RubikScribble-Regular";
+  src: url("../font/RubikScribble-Regular.ttf") format("truetype");
+}
+
 body {
+  font-family: "RubikScribble-Regular";
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
   margin: 10px;
+  margin-left: 40px;
   background-color: #f0f0f0;
 }
 
@@ -25,13 +32,13 @@ body {
 
 #search-button {
   position: absolute;
-  right: -40px;
-  top: 1px;
+  right: -42px;
+  top: 82px;
   background-color: #a7c5a8;
   color: white;
   border: none;
-  border-radius: 2px;
-  padding: 7px;
+  border-radius: 5px;
+  padding: 8px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -42,7 +49,7 @@ body {
 
 #search-results-container {
   position: absolute;
-  top: 80px;
+  top: 130px;
   width: 100%;
   max-height: calc(100vh - 140px);
   overflow-y: auto;
@@ -82,7 +89,7 @@ body {
 @media only screen and (max-width: 600px) {
   #search {
     width: calc(100% - 100px);
-    left: 10px;
+    left: 5px;
   }
 
   .search-container {
@@ -91,13 +98,17 @@ body {
 
   #search-button {
     position: relative;
-    padding: 9px;
     border-radius: 5px;
-    left: 9px;
+    padding: 10px;
+    cursor: pointer;
+    top: 1px;
+    left: 5px;
   }
 
   #search-results-container {
-    top: 100px;
+    top: 130px;
+    right: 2px;
+    width: 100%;
     max-height: calc(100vh - 70px);
   }
 }
