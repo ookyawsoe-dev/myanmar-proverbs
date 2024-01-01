@@ -1,3 +1,2 @@
-Myanmar Proverbs
-
-just praticing project
+# Myanmar Proverbs
+# Myanmar Proverbs - (မြန်မာ စကားပုံများ)
