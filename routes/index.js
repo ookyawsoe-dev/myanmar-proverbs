@@ -5,8 +5,21 @@ const path = require('path');
 
 const filePath = path.join(__dirname, '../MyanmarProverbs.json');
 
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Myanmar Proverbs' });
+router.get('/', async (req, res, next) => {
+  try {
+    const data = await fs.readFile(filePath, 'utf8');
+    let fetchData;
+    try {
+      fetchData = JSON.parse(data);
+    } catch (jsonError) {
+      console.error('Error parsing JSON:', jsonError);
+      throw new Error('Invalid JSON format');
+    }
+    const tbl_MMProverbsTitle = fetchData && fetchData.Tbl_MMProverbsTitle;
+    res.render('index', { title: 'Myanmar Proverbs', data: tbl_MMProverbsTitle });
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.get('/search', async function (req, res, next) {

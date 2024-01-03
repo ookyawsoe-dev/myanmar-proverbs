@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: "RubikScribble-Regular";
   src: url("../font/RubikScribble-Regular.ttf") format("truetype");
@@ -5,70 +9,81 @@
 
 body {
   font-family: "RubikScribble-Regular";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
   margin: 10px;
-  margin-left: 40px;
-  background-color: #f0f0f0;
+  text-align: center;
+  background-color: white;
+}
+
+h1 {
+  text-align: left;
+  margin-left: 7%;
+}
+
+span {
+  font-size: 120%;
+  justify-content: space-between;
+}
+
+p {
+  display: block;
+  font-size: small;
+  font-weight: lighter;
 }
 
 .search-container {
   position: absolute;
-  margin-top: 5px;
-  width: 70%;
+  width: 85%;
 }
 
 #search {
   position: relative;
-  padding: 10px;
-  border: none;
+  padding: 15px;
+  left: 7%;
+  border: 1px solid black;
+  margin: 0 auto;
   border-radius: 5px;
   font-size: 16px;
-  width: 100%;
+  width: 102%;
   box-sizing: border-box;
 }
 
-#search-button {
-  position: absolute;
-  right: -42px;
-  top: 82px;
-  background-color: #a7c5a8;
-  color: white;
+.button-like {
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  top: 140px;
+  width: 250px;
+  background-color: #ffffff;
+  color: black;
   border: none;
-  border-radius: 5px;
-  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid black;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
   cursor: pointer;
-  font-size: 16px;
 }
 
-#search-button:hover {
-  background-color: #45a049;
+.button-like:hover {
+  background-color: rgb(210, 212, 210);
 }
 
 #search-results-container {
   position: absolute;
-  top: 130px;
-  width: 100%;
+  top: 150px;
+  left: 90px;
+  width: 88%;
+  text-align: left;
   max-height: calc(100vh - 140px);
   overflow-y: auto;
   background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 0;
   padding: 10px;
   box-sizing: border-box;
 }
 
-#search-results-container p {
-  margin: 0;
-  padding: 5px 0;
-  border-bottom: 1px solid #eee;
-}
-
 .card {
-  border: 1px solid #ccc;
+  border: 1px solid black;
   margin-top: 20px;
   margin-bottom: 10px;
   padding: 10px;
@@ -88,27 +103,26 @@ body {
 
 @media only screen and (max-width: 600px) {
   #search {
-    width: calc(100% - 100px);
-    left: 5px;
+    width: 86%;
+    margin-right: 100px;
   }
 
   .search-container {
     width: 100%;
   }
 
-  #search-button {
-    position: relative;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    top: 1px;
-    left: 5px;
+  #search-results-container {
+    top: 150px;
+    left: 30px;
+    width: 90%;
+    max-height: calc(100vh - 70px);
   }
 
-  #search-results-container {
-    top: 130px;
-    right: 2px;
-    width: 100%;
-    max-height: calc(100vh - 70px);
+  @media only screen and (max-width: 600px) {
+    .button-like {
+      position: relative;
+      width: 43%;
+      left: 2%;
+    }
   }
 }
